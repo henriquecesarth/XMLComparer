@@ -1,3 +1,6 @@
+using NFe.Classes;
+using System.IO;
+
 namespace TestadorXML
 {
     internal static class Program
@@ -12,6 +15,11 @@ namespace TestadorXML
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
+
+
+
+
         }
     }
 }

@@ -40,6 +40,8 @@ namespace TestadorXML
             LimparTabelas();
             try
             {
+                //Form2 form2 = new Form2();
+                //form2.Show();
                 //Busca os arquivos XML
                 BuscarArquivos(path);
                 // Login Servidor
@@ -57,6 +59,7 @@ namespace TestadorXML
                 {
                     DiferencaBancoXml();
                 }
+                //form2.Hide();
             }
             catch (Exception ex)
             {
