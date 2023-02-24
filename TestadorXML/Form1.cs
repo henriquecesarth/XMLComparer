@@ -44,19 +44,37 @@ namespace TestadorXML
                 //form2.Show();
                 //Busca os arquivos XML
                 BuscarArquivos(path);
+
                 // Login Servidor
-                ConectarBanco();
+                string query = $"Select Modelo, Emissao as Emissão, NF as Número, Serie, TotalNota as Total from Fiscal.Documento " +
+                    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value}') " +
+                    $"and CONVERT(DATE, '{dateTimePicker2.Value}') and NF != '' order by NF; ";
+                ConectarBanco(query, true);
                 // Gera a tabela com a diferença entre XML e Banco
                 if (dataGridView2.RowCount == 0)
                 {
                     MessageBox.Show("Nenhum XML encontrado");
+                    label12.Text = dataGridView3.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["TOTAL"].Value, CultureInfo.InvariantCulture)).ToString("N2");
+                    label18.Text = dataGridView3.Rows.Count.ToString();
+                    label18.Visible = true;
                 }
                 else if (dataGridView3.RowCount == 0)
                 {
                     MessageBox.Show("Nenhum documento encontrado no banco de dados nesse período");
+                    label11.Text = dataGridView2.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["TOTAL"].Value, CultureInfo.InvariantCulture)).ToString("N2");
+                    label17.Text = dataGridView2.Rows.Count.ToString();
+                    label17.Visible = true;
                 }
                 else
                 {
+                    label11.Text = dataGridView2.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["TOTAL"].Value, CultureInfo.InvariantCulture)).ToString("N2");
+                    label12.Text = dataGridView3.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["TOTAL"].Value, CultureInfo.InvariantCulture)).ToString("N2");
+                    label13.Text = Math.Abs(dataGridView2.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["TOTAL"].Value, CultureInfo.InvariantCulture)) -
+                        dataGridView3.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells["TOTAL"].Value, CultureInfo.InvariantCulture))).ToString("F2");
+                    label17.Text = dataGridView2.Rows.Count.ToString();
+                    label17.Visible = true;
+                    label18.Text = dataGridView3.Rows.Count.ToString();
+                    label18.Visible = true;
                     DiferencaBancoXml();
                 }
                 //form2.Hide();
@@ -112,7 +130,7 @@ namespace TestadorXML
 
             using (XmlReader meuXml = XmlReader.Create(arquivo))
             {
-                
+                double totalXML = 0;
                 while (meuXml.Read())
                 {
                     if (tipoArquivo != "nfe")
@@ -146,6 +164,7 @@ namespace TestadorXML
                         if (meuXml.NodeType == XmlNodeType.Element && meuXml.Name == "vCFe")
                         {
                             campo[4] = meuXml.ReadElementContentAsString(); // Valor do cupom
+                            totalXML += double.Parse(campo[4]);
                             xmlRed = true; // Xml lido
                         }
 
@@ -182,13 +201,15 @@ namespace TestadorXML
                         if (xmlRed)
                         {
                             dataGridView2.Rows.Add(campo);  // Adiciona linha na tabela
+                            totalXML += double.Parse(campo[4]);
                             xmlRed = false;
                         }
                     }
                 }
+                
             }
         }
-        private void ConectarBanco()
+        private void ConectarBanco(string query, bool consulta=false)
         {
             Conn.Server = textBox2.Text; Conn.DataBase = textBox3.Text; Conn.Password = textBox4.Text;
 
@@ -197,19 +218,52 @@ namespace TestadorXML
             {
                 cn.Open();
                 toolStripStatusLabel1.Text = "Conectado.";
-                var sqlQuery = $"Select Modelo, Emissao as Emissão, NF as Número, Serie, TotalNota as Total from Fiscal.Documento " +
-                    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value}') " +
-                    $"and CONVERT(DATE, '{dateTimePicker2.Value}') and NF != '' order by NF; ";
+                var sqlQuery = query;
+                //var sqlQuery = $"Select Modelo, Emissao as Emissão, NF as Número, Serie, TotalNota as Total from Fiscal.Documento " +
+                //    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value}') " +
+                //    $"and CONVERT(DATE, '{dateTimePicker2.Value}') and NF != '' order by NF; ";
+
                 using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
                 {
                     using (DataTable dt = new DataTable())
                     {
-                        dataGridView3.Columns.Clear();
                         da.Fill(dt);
-                        dataGridView3.DataSource = dt;
+                        if (consulta)
+                        {
+                            dataGridView3.Columns.Clear();
+                            dataGridView3.DataSource = dt;
+                        }
+                        else
+                        {
+                            int cont = 0;
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                foreach (var item in row.ItemArray)
+                                {
+                                    
+                                    string filePath = path +"\\" + item.ToString().Substring(55,47) + ".xml";
+                                    cont++;
+                                    try
+                                    {
+                                        using var file = File.CreateText(filePath);
+                                            file.WriteLine(item);
+                                            file.Close();
+                                        
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        toolStripStatusLabel1.Text = "Falha.";
+                                        MessageBox.Show($"Falha ao tentar conectar\n\n{ex.Message}");
+
+                                    }
+                                }
+                            }
+                        }
+
                     }
+
                 }
-                
+
             }
         }
         private void DiferencaBancoXml()
@@ -259,7 +313,7 @@ namespace TestadorXML
                             {
                                 for (int k = 0; k < dataGridView3.RowCount; k++)
                                 {
-                                    if (dataGridView3[2, k].Value.ToString() == campo[2])
+                                    if (dataGridView3[2, k].Value.ToString() == campo[2] && int.Parse(dataGridView3[3, k].Value.ToString()).ToString() == campo[3])
                                     {
                                         campo[5] = dataGridView3[4, k].Value.ToString(); // Valor nota Banco
                                         campo[5] = double.Parse(campo[5]).ToString("f2", CultureInfo.InvariantCulture); // Valor nota Banco
@@ -329,7 +383,20 @@ namespace TestadorXML
             textBox4.PasswordChar = '*';
         }
 
+        private void label7_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string query = $"Select XMLDocumentoAutorizado from Fiscal.Documento " +
+                    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value}') " +
+                    $"and CONVERT(DATE, '{dateTimePicker2.Value}') AND XMLDocumentoAutorizado != ''; ";
+
+            ConectarBanco(query);
+
+        }
     }
 
 

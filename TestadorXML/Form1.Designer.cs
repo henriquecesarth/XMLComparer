@@ -28,6 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,12 +50,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Emissão = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Número = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Série = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalXML = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalBanco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diferença = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocumentosDiferentes = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,25 +83,19 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Emissão = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Número = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Série = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalXML = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalBanco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Diferença = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.DocumentosDiferentes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -165,6 +190,62 @@
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Modelo
+            // 
+            dataGridViewCellStyle1.Format = "N0";
+            this.Modelo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            // 
+            // Emissão
+            // 
+            this.Emissão.HeaderText = "Emissão";
+            this.Emissão.Name = "Emissão";
+            this.Emissão.ReadOnly = true;
+            // 
+            // Número
+            // 
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Número.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Número.HeaderText = "Número";
+            this.Número.Name = "Número";
+            this.Número.ReadOnly = true;
+            // 
+            // Série
+            // 
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Série.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Série.HeaderText = "Série";
+            this.Série.Name = "Série";
+            this.Série.ReadOnly = true;
+            // 
+            // TotalXML
+            // 
+            dataGridViewCellStyle4.Format = "N2";
+            this.TotalXML.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TotalXML.HeaderText = "Total XML";
+            this.TotalXML.Name = "TotalXML";
+            this.TotalXML.ReadOnly = true;
+            // 
+            // TotalBanco
+            // 
+            dataGridViewCellStyle5.Format = "N2";
+            this.TotalBanco.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TotalBanco.HeaderText = "Total Banco";
+            this.TotalBanco.Name = "TotalBanco";
+            this.TotalBanco.ReadOnly = true;
+            // 
+            // Diferença
+            // 
+            dataGridViewCellStyle6.Format = "N2";
+            this.Diferença.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Diferença.HeaderText = "Diferença";
+            this.Diferença.Name = "Diferença";
+            this.Diferença.ReadOnly = true;
+            // 
             // DocumentosDiferentes
             // 
             this.DocumentosDiferentes.AccessibleName = "Documentos diferentes";
@@ -211,13 +292,53 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
+            this.TOTAL});
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 25;
             this.dataGridView2.Size = new System.Drawing.Size(812, 295);
             this.dataGridView2.TabIndex = 8;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "MODELO";
+            dataGridViewCellStyle7.Format = "N0";
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Modelo";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Emissão";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewCellStyle8.Format = "N0";
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Número";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewCellStyle9.Format = "N0";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Série";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.DataPropertyName = "TOTAL";
+            dataGridViewCellStyle10.Format = "N2";
+            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle10;
+            this.TOTAL.HeaderText = "Total";
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
             // 
             // tabPage3
             // 
@@ -250,6 +371,45 @@
             this.dataGridView3.TabIndex = 7;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle11.Format = "N0";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Modelo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Emissão";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewCellStyle12.Format = "N0";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Número";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewCellStyle13.Format = "N0";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Série";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "TOTAL";
+            dataGridViewCellStyle14.Format = "N2";
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -280,6 +440,8 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(101, 67);
             this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "C:\\\\";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(314, 23);
             this.textBox1.TabIndex = 10;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -315,6 +477,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(68, 106);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PlaceholderText = "EXEMPLO\\SQLEXPRESS";
             this.textBox2.Size = new System.Drawing.Size(181, 23);
             this.textBox2.TabIndex = 14;
             // 
@@ -322,6 +485,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(68, 139);
             this.textBox3.Name = "textBox3";
+            this.textBox3.PlaceholderText = "PDV";
             this.textBox3.Size = new System.Drawing.Size(181, 23);
             this.textBox3.TabIndex = 15;
             // 
@@ -333,131 +497,126 @@
             this.textBox4.TabIndex = 16;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // radioButton1
+            // label7
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(674, 110);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 19);
-            this.radioButton1.TabIndex = 17;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "CFe";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.Visible = false;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(277, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 15);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Total XML:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // radioButton2
+            // label8
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(674, 135);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(54, 19);
-            this.radioButton2.TabIndex = 18;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "NFCe";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.Visible = false;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(277, 144);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 15);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Total Banco:";
             // 
-            // dataGridViewTextBoxColumn4
+            // label9
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Modelo";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(348, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 15);
+            this.label9.TabIndex = 21;
             // 
-            // dataGridViewTextBoxColumn6
+            // label10
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Emissão";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(357, 147);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 15);
+            this.label10.TabIndex = 22;
             // 
-            // dataGridViewTextBoxColumn7
+            // label11
             // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Número";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(348, 110);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 15);
+            this.label11.TabIndex = 23;
             // 
-            // dataGridViewTextBoxColumn8
+            // label12
             // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Série";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(357, 144);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 15);
+            this.label12.TabIndex = 24;
             // 
-            // dataGridViewTextBoxColumn9
+            // label13
             // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(357, 174);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 15);
+            this.label13.TabIndex = 26;
             // 
-            // Modelo
+            // label14
             // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(277, 174);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 15);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Diferença:";
             // 
-            // Emissão
+            // label15
             // 
-            this.Emissão.HeaderText = "Emissão";
-            this.Emissão.Name = "Emissão";
-            this.Emissão.ReadOnly = true;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label15.Location = new System.Drawing.Point(448, 110);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 15);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Quant. XML:";
             // 
-            // Número
+            // label16
             // 
-            this.Número.HeaderText = "Número";
-            this.Número.Name = "Número";
-            this.Número.ReadOnly = true;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(448, 142);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(84, 15);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Quant. Banco:";
             // 
-            // Série
+            // label17
             // 
-            this.Série.HeaderText = "Série";
-            this.Série.Name = "Série";
-            this.Série.ReadOnly = true;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(529, 109);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(44, 15);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "label17";
+            this.label17.Visible = false;
             // 
-            // TotalXML
+            // label18
             // 
-            this.TotalXML.HeaderText = "Total XML";
-            this.TotalXML.Name = "TotalXML";
-            this.TotalXML.ReadOnly = true;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(538, 142);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(44, 15);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "label18";
+            this.label18.Visible = false;
             // 
-            // TotalBanco
+            // button3
             // 
-            this.TotalBanco.HeaderText = "Total Banco";
-            this.TotalBanco.Name = "TotalBanco";
-            this.TotalBanco.ReadOnly = true;
-            // 
-            // Diferença
-            // 
-            this.Diferença.HeaderText = "Diferença";
-            this.Diferença.Name = "Diferença";
-            this.Diferença.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Modelo";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Emissão";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Número";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Série";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.button3.Location = new System.Drawing.Point(664, 110);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(106, 32);
+            this.button3.TabIndex = 31;
+            this.button3.Text = "Gerar XMLs";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -465,8 +624,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(822, 589);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -526,8 +696,14 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
         private DataGridViewTextBoxColumn Modelo;
         private DataGridViewTextBoxColumn Emissão;
         private DataGridViewTextBoxColumn Número;
@@ -539,11 +715,16 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn TOTAL;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Button button3;
     }
 }
