@@ -1,4 +1,4 @@
-﻿namespace TestadorXML
+﻿namespace IzzyXML
 {
     partial class Form1
     {
@@ -164,7 +164,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 32);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Validar";
+            this.button1.Text = "Comparar XMLs";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -428,11 +428,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(664, 64);
+            this.button2.Location = new System.Drawing.Point(414, 66);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 32);
+            this.button2.Size = new System.Drawing.Size(24, 25);
             this.button2.TabIndex = 9;
-            this.button2.Text = "Procurar";
+            this.button2.Text = "...";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -480,6 +480,7 @@
             this.textBox2.PlaceholderText = "EXEMPLO\\SQLEXPRESS";
             this.textBox2.Size = new System.Drawing.Size(181, 23);
             this.textBox2.TabIndex = 14;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -506,6 +507,7 @@
             this.label7.Size = new System.Drawing.Size(65, 15);
             this.label7.TabIndex = 19;
             this.label7.Text = "Total XML:";
+            this.label7.Visible = false;
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
@@ -517,6 +519,7 @@
             this.label8.Size = new System.Drawing.Size(74, 15);
             this.label8.TabIndex = 20;
             this.label8.Text = "Total Banco:";
+            this.label8.Visible = false;
             // 
             // label9
             // 
@@ -567,6 +570,7 @@
             this.label14.Size = new System.Drawing.Size(65, 15);
             this.label14.TabIndex = 25;
             this.label14.Text = "Diferença:";
+            this.label14.Visible = false;
             // 
             // label15
             // 
@@ -577,6 +581,7 @@
             this.label15.Size = new System.Drawing.Size(75, 15);
             this.label15.TabIndex = 27;
             this.label15.Text = "Quant. XML:";
+            this.label15.Visible = false;
             // 
             // label16
             // 
@@ -587,6 +592,7 @@
             this.label16.Size = new System.Drawing.Size(84, 15);
             this.label16.TabIndex = 28;
             this.label16.Text = "Quant. Banco:";
+            this.label16.Visible = false;
             // 
             // label17
             // 
@@ -610,9 +616,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(664, 110);
+            this.button3.Location = new System.Drawing.Point(664, 67);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 32);
+            this.button3.Size = new System.Drawing.Size(106, 31);
             this.button3.TabIndex = 31;
             this.button3.Text = "Gerar XMLs";
             this.button3.UseVisualStyleBackColor = true;

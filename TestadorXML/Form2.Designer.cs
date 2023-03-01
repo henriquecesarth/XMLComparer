@@ -1,4 +1,4 @@
-﻿namespace TestadorXML
+﻿namespace IzzyXML
 {
     partial class Form2
     {

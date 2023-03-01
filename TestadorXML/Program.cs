@@ -1,7 +1,7 @@
 using NFe.Classes;
 using System.IO;
 
-namespace TestadorXML
+namespace IzzyXML
 {
     internal static class Program
     {

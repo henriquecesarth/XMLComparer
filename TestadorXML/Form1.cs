@@ -4,7 +4,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
 
-namespace TestadorXML
+namespace IzzyXML
 {
     public partial class Form1 : Form
     {
@@ -42,6 +42,8 @@ namespace TestadorXML
             {
                 //Form2 form2 = new Form2();
                 //form2.Show();
+                label7.Visible = true; label8.Visible = true; label14.Visible = true; label15.Visible = true; label16.Visible = true;
+
                 //Busca os arquivos XML
                 BuscarArquivos(path);
 
@@ -230,34 +232,11 @@ namespace TestadorXML
                         da.Fill(dt);
                         if (consulta)
                         {
-                            dataGridView3.Columns.Clear();
-                            dataGridView3.DataSource = dt;
+                            ConsultaXmlBanco(dt);
                         }
                         else
                         {
-                            int cont = 0;
-                            foreach (DataRow row in dt.Rows)
-                            {
-                                foreach (var item in row.ItemArray)
-                                {
-                                    
-                                    string filePath = path +"\\" + item.ToString().Substring(55,47) + ".xml";
-                                    cont++;
-                                    try
-                                    {
-                                        using var file = File.CreateText(filePath);
-                                            file.WriteLine(item);
-                                            file.Close();
-                                        
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        toolStripStatusLabel1.Text = "Falha.";
-                                        MessageBox.Show($"Falha ao tentar conectar\n\n{ex.Message}");
-
-                                    }
-                                }
-                            }
+                            GerarXml(dt);  
                         }
 
                     }
@@ -390,11 +369,70 @@ namespace TestadorXML
 
         private void button3_Click(object sender, EventArgs e)
         {
+            label7.Visible = false; label8.Visible = false; label14.Visible = false; label15.Visible = false; label16.Visible = false;
+
             string query = $"Select XMLDocumentoAutorizado from Fiscal.Documento " +
                     $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value}') " +
                     $"and CONVERT(DATE, '{dateTimePicker2.Value}') AND XMLDocumentoAutorizado != ''; ";
 
             ConectarBanco(query);
+
+        }
+
+        private void ConsultaXmlBanco(DataTable dt)
+        {
+            dataGridView3.Columns.Clear();
+            dataGridView3.DataSource = dt;
+        }
+
+        private void GerarXml(DataTable dt)
+        {
+            foreach (DataRow row in dt.Rows)
+            {
+                foreach (var item in row.ItemArray)
+                {
+                    if (item.ToString().Substring(178, 3) == "NFe")
+                    {
+                        string filePath = path + "\\" + item.ToString().Substring(182, 43) + "-nfe.xml";
+
+                        try
+                        {
+                            using var file = File.CreateText(filePath);
+                            file.WriteLine(item);
+                            file.Close();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            toolStripStatusLabel1.Text = "Falha.";
+                            MessageBox.Show($"Falha ao tentar conectar\n\n{ex.Message}");
+
+                        }
+                    }
+                    else if (item.ToString().Substring(55, 3) == "CFe")
+                    {
+                        string filePath = path + "\\AD" + item.ToString().Substring(58, 44) + ".xml";
+
+                        try
+                        {
+                            using var file = File.CreateText(filePath);
+                            file.WriteLine(item);
+                            file.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            toolStripStatusLabel1.Text = "Falha.";
+                            MessageBox.Show($"Falha ao tentar conectar\n\n{ex.Message}");
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
