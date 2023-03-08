@@ -264,12 +264,12 @@ namespace IzzyXML
 
             for (int i = 0; i < dataGridView2.RowCount; i++)
             {
-                listaDfeXml.Add(dataGridView2[2, i].Value.ToString());
+                listaDfeXml.Add(int.Parse(dataGridView2[2, i].Value.ToString()).ToString());
             }
             
             for (int i = 0; i < dataGridView3.RowCount; i++)
             {
-                listaDfeBanco.Add(dataGridView3[2, i].Value.ToString());
+                listaDfeBanco.Add(int.Parse(dataGridView3[2, i].Value.ToString()).ToString());
             }
 
 
@@ -282,7 +282,7 @@ namespace IzzyXML
                 {
                     for (int j = 0; j < dataGridView2.RowCount; j++)
                     {
-                        if (dataGridView2[2, j].Value.ToString() == campo[2])
+                        if (int.Parse(dataGridView2[2, j].Value.ToString()).ToString() == int.Parse(campo[2]).ToString())
                         {
                             campo[0] = dataGridView2[0, j].Value.ToString();
                             campo[1] = dataGridView2[1, j].Value.ToString(); // Emissão
@@ -292,7 +292,7 @@ namespace IzzyXML
                             {
                                 for (int k = 0; k < dataGridView3.RowCount; k++)
                                 {
-                                    if (dataGridView3[2, k].Value.ToString() == campo[2] && int.Parse(dataGridView3[3, k].Value.ToString()).ToString() == campo[3])
+                                    if (int.Parse(dataGridView3[2, k].Value.ToString()).ToString() == int.Parse(campo[2]).ToString() && int.Parse(dataGridView3[3, k].Value.ToString()).ToString() == int.Parse(campo[3]).ToString())
                                     {
                                         campo[5] = dataGridView3[4, k].Value.ToString(); // Valor nota Banco
                                         campo[5] = double.Parse(campo[5]).ToString("f2", CultureInfo.InvariantCulture); // Valor nota Banco
@@ -391,13 +391,18 @@ namespace IzzyXML
             {
                 foreach (var item in row.ItemArray)
                 {
+                    string itemString = item.ToString();
+
                     if (item.ToString().Substring(178, 3) == "NFe")
                     {
-                        string filePath = path + "\\" + item.ToString().Substring(182, 43) + "-nfe.xml";
+                        string filePath = path + "\\" + itemString.Substring(182, 43) + "-nfe.xml";
+
+                        string date = itemString.Substring(350, 8) + " " + itemString.Substring(359,8);
 
                         try
                         {
                             using var file = File.CreateText(filePath);
+                            File.SetCreationTime(filePath, DateTime.Parse(date));
                             file.WriteLine(item);
                             file.Close();
 
@@ -413,8 +418,12 @@ namespace IzzyXML
                     {
                         string filePath = path + "\\AD" + item.ToString().Substring(58, 44) + ".xml";
 
+                        string date = itemString.Substring(271, 2) + "\\" + itemString.Substring(269, 2) + "\\" + itemString.Substring(265, 4) +
+                            " " + itemString.Substring(286, 2) + ":" + itemString.Substring(288, 2) + ":" + itemString.Substring(290, 2);
+
                         try
                         {
+                            File.SetCreationTime(filePath, DateTime.Parse(date));
                             using var file = File.CreateText(filePath);
                             file.WriteLine(item);
                             file.Close();
