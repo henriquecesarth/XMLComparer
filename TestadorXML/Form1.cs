@@ -49,8 +49,8 @@ namespace IzzyXML
 
                 // Login Servidor
                 string query = $"Select Modelo, Emissao as Emissão, NF as Número, Serie, TotalNota as Total from Fiscal.Documento " +
-                    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value}') " +
-                    $"and CONVERT(DATE, '{dateTimePicker2.Value}') and NF != '' order by NF; ";
+                    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value.ToString("yyyy-MM-dd")}') " +
+                    $"and CONVERT(DATE, '{dateTimePicker2.Value.ToString("yyyy-MM-dd")}') and NF != '' order by NF; ";
                 ConectarBanco(query, true);
                 // Gera a tabela com a diferença entre XML e Banco
                 if (dataGridView2.RowCount == 0)
@@ -80,6 +80,11 @@ namespace IzzyXML
                     DiferencaBancoXml();
                 }
                 //form2.Hide();
+            }
+            catch (XmlException ex)
+            {
+                toolStripStatusLabel1.Text = "Falha.";
+                MessageBox.Show($"Falha ao buscar Xmls\n\n{ex.Message}");
             }
             catch (Exception ex)
             {
@@ -132,8 +137,11 @@ namespace IzzyXML
 
             using (XmlReader meuXml = XmlReader.Create(arquivo))
             {
+                
                 double totalXML = 0;
-                while (meuXml.Read())
+                try
+                {
+                    while (meuXml.Read())
                 {
                     if (tipoArquivo != "nfe")
                     {
@@ -207,6 +215,11 @@ namespace IzzyXML
                             xmlRed = false;
                         }
                     }
+                }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(arquivo);
                 }
                 
             }
@@ -372,8 +385,8 @@ namespace IzzyXML
             label7.Visible = false; label8.Visible = false; label14.Visible = false; label15.Visible = false; label16.Visible = false;
 
             string query = $"Select XMLDocumentoAutorizado from Fiscal.Documento " +
-                    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value}') " +
-                    $"and CONVERT(DATE, '{dateTimePicker2.Value}') AND XMLDocumentoAutorizado != ''; ";
+                    $"where CONVERT(DATE, Emissao) between CONVERT(DATE, '{dateTimePicker1.Value.ToString("yyyy-MM-dd")}') " +
+                    $"and CONVERT(DATE, '{dateTimePicker2.Value.ToString("yyyy-MM-dd")}') AND XMLDocumentoAutorizado != ''; ";
 
             ConectarBanco(query);
 
@@ -397,12 +410,12 @@ namespace IzzyXML
                     {
                         string filePath = path + "\\" + itemString.Substring(182, 43) + "-nfe.xml";
 
-                        string date = itemString.Substring(350, 8) + " " + itemString.Substring(359,8);
+                        //string date = itemString.Substring(350, 8) + " " + itemString.Substring(359,8);
 
                         try
                         {
                             using var file = File.CreateText(filePath);
-                            File.SetCreationTime(filePath, DateTime.Parse(date));
+                            //File.SetCreationTime(filePath, DateTime.Parse(date));
                             file.WriteLine(item);
                             file.Close();
 
@@ -418,12 +431,12 @@ namespace IzzyXML
                     {
                         string filePath = path + "\\AD" + item.ToString().Substring(58, 44) + ".xml";
 
-                        string date = itemString.Substring(271, 2) + "\\" + itemString.Substring(269, 2) + "\\" + itemString.Substring(265, 4) +
-                            " " + itemString.Substring(286, 2) + ":" + itemString.Substring(288, 2) + ":" + itemString.Substring(290, 2);
+                        //string date = itemString.Substring(271, 2) + "\\" + itemString.Substring(269, 2) + "\\" + itemString.Substring(265, 4) +
+                        //    " " + itemString.Substring(286, 2) + ":" + itemString.Substring(288, 2) + ":" + itemString.Substring(290, 2);
 
                         try
                         {
-                            File.SetCreationTime(filePath, DateTime.Parse(date));
+                            //File.SetCreationTime(filePath, DateTime.Parse(date));
                             using var file = File.CreateText(filePath);
                             file.WriteLine(item);
                             file.Close();
