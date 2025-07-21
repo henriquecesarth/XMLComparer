@@ -1,6 +1,6 @@
 ﻿namespace IzzyXML
 {
-    partial class Form1
+    partial class XMLComparer
     {
         /// <summary>
         ///  Required designer variable.

@@ -1,4 +1,4 @@
-﻿namespace IzzyXML
+﻿namespace XMLComparer
 {
     partial class Form2
     {
